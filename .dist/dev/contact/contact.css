@@ -1,0 +1,31 @@
+main article section {
+  max-width: none;
+}
+
+main article section h1, main article section p {
+  text-align: left;
+}
+
+.stack {
+  gap: 3em;
+  display: flex;
+}
+
+.stack > * {
+  flex: 1;
+}
+
+.stack figure {
+  margin: 0;
+}
+
+.stack img {
+  border-radius: 4px;
+}
+
+@media (width <= 1000px) {
+  .stack {
+    flex-direction: column;
+    max-width: 460px;
+  }
+}

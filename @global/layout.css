@@ -1,0 +1,71 @@
+
+/* all reset/normalization you need */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* consistent whitespace */
+ul, ol ,figure, pre {
+  margin: 2em 0;
+}
+
+/* page layout */
+body {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 2% 5%;
+  background-color: var(--bg-color);
+
+  > header nav {
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    display: flex;
+
+    /*  avatar image */
+    > a:first-child {
+      background: url(/img/favicon.png) 0 50% no-repeat;
+      background-size: 2em;
+      padding-left: 2.5em;
+    }
+
+    a { padding: 1em 0 }
+  }
+
+  /* content area: hero and sections */
+  article {
+    > header { margin-bottom: 2rem }
+
+    > section {
+      max-width: 75ch;
+      margin: 0 auto;
+    }
+  }
+
+  /* global footer */
+  > footer {
+    border-top: 1px solid var(--gray-200);
+    margin-top: 8rem;
+
+    nav {
+      padding: 1rem 0;
+      display: flex;
+      gap: .5em;
+
+      a { opacity: .8 }
+      a:hover { opacity: 1 }
+
+      a:nth-child(2) {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+svg {
+  color: var(--icon-color);
+}
+
+
+
+
+

@@ -1,0 +1,355 @@
+<!doctype html>
+
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+<title>Carnivoor Experiments / Crafting a scaleable CSS design system</title>
+<meta name="generator" content="Nue v1.0.0-RC.1 (nuejs.org)">
+<meta name="date.updated" content="2025-01-05T14:42:45.622Z">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Design systems are key to managing code at scale, but creating one that&#x2019;s flexible and maintainable takes work. A key to success is to break UI elements into reusable, abstracted components. When building a CSS design system, focus on these areas:">
+<meta name="author" content="Mauricio Wolff">
+<meta property="og:title" content="Crafting a scaleable CSS design system">
+<meta property="og:description" content="Design systems are key to managing code at scale, but creating one that&#x2019;s flexible and maintainable takes work. A key to success is to break UI elements into reusable, abstracted components. When building a CSS design system, focus on these areas:">
+<meta property="og:image" content="https://carnivoorexperiment.nl/img/og_emma.png">
+<meta property="article:published_time" content="Sun Sep 15 2024 02:00:00 GMT+0200 (Central European Summer Time)">
+<meta name="nue:components" content=" ">
+<meta name="nue:include" content="content cards motion">
+<meta name="nue:globals" content="@global">
+<meta name="nue:libs" content="@library">
+<link rel="icon" type="image/jpg" href="/img/favicon.jpg">
+<style href="/@global/colors.css">:root {
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --main-500: #441500;
+  --main-600: #cc4600;
+  --pink-gradient: linear-gradient(#e879f9, #ec4899);
+  --blue-gradient: linear-gradient(#0ea5e9, #67e8f9);
+  --marker: #ffff7a;
+}
+</style>
+<style href="/@global/layout.css">*, :before, :after {
+  box-sizing: border-box;
+}
+
+ul, ol, figure, pre {
+  margin: 2em 0;
+}
+
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2% 5%;
+}
+
+body > header nav {
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  display: flex;
+}
+
+body > header nav > a:first-child {
+  background: url("/img/avatar-rounded.jpg") 0 / 2em no-repeat;
+  padding-left: 2.5em;
+}
+
+body > header nav a {
+  padding: 1em 0;
+}
+
+body article > header {
+  margin-bottom: 2rem;
+}
+
+body article > section {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+body > footer {
+  border-top: 1px solid var(--gray-200);
+  margin-top: 8rem;
+}
+
+body > footer nav {
+  gap: .5em;
+  padding: 1rem 0;
+  display: flex;
+}
+
+body > footer nav a {
+  opacity: .8;
+}
+
+body > footer nav a:hover {
+  opacity: 1;
+}
+
+body > footer nav a:nth-child(2) {
+  margin-left: auto;
+}
+</style>
+<style href="/@global/typography.css">body {
+  font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto;
+}
+
+h1 {
+  letter-spacing: -.03em;
+  font-size: 2.6rem;
+}
+
+h1, h1 + p {
+  text-align: center;
+  text-wrap: balance;
+  max-width: 40rem;
+  margin: 0 auto .2em;
+}
+
+h1 + p {
+  color: var(--gray-500);
+  margin-bottom: 2em;
+  font-size: 1.15em;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav :is(a) {
+  color: var(--gray-900);
+  font-weight: 500;
+}
+
+nav :is(a)[aria-selected] {
+  text-decoration: 2px underline var(--main-500);
+  text-underline-offset: 8px;
+}
+
+p, li {
+  color: var(--gray-800);
+  line-height: 1.65;
+}
+
+:is(p, li) strong {
+  color: var(--gray-800);
+}
+
+:is(h1 + p) strong {
+  color: var(--gray-600);
+}
+</style>
+<style href="/@library/cards.css">.pink, .blue {
+  background-image: var(--pink-gradient);
+  border-radius: .8em;
+  margin: 1.5em 0 2em;
+  padding: 3em 0 0 3em;
+  overflow: hidden;
+}
+
+:is(.pink, .blue) pre {
+  margin: 0;
+  padding: 2em;
+}
+
+:is(.pink, .blue) > * {
+  border-radius: .6em 0 0;
+}
+
+.blue {
+  background-image: var(--blue-gradient);
+}
+</style>
+<style href="/@library/content.css">article a {
+  text-decoration: underline var(--main-500) 1px;
+  text-underline-offset: 3px;
+  color: var(--gray-800);
+  font-weight: 500;
+}
+
+article a:hover {
+  text-decoration-color: var(--main-600);
+  color: #000;
+  text-decoration-thickness: 2px;
+}
+
+h2 {
+  color: var(--gray-900);
+  margin: 4em 0 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+li {
+  text-wrap: balance;
+  margin-bottom: 1em;
+}
+
+pre {
+  --glow-padding: 2em;
+  font-size: 105%;
+}
+
+img, pre {
+  border-radius: 8px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+  border-left: 5px solid var(--gray-900);
+  text-wrap: balance;
+  margin: 2.5em 0;
+  padding-left: 1.5em;
+}
+
+blockquote p {
+  color: var(--gray-900);
+  font-size: 140%;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+blockquote strong {
+  background-color: var(--marker);
+  font-weight: inherit;
+  margin-inline: -.2em;
+  padding: .1em .2em;
+}
+</style>
+<style href="/@library/motion.css">header, h1, h1 + p, h1 ~ *, h2, h2 + p, h2 ~ * {
+  filter: none;
+  opacity: 1;
+  transition: opacity .5s, filter .7s;
+}
+
+@starting-style {
+  :is(header, h1, h1 + p, h1 ~ *, h2, h2 + p, h2 ~ *) {
+    filter: blur(10px);
+    opacity: 0;
+  }
+}
+
+h1 {
+  transition-delay: .1s;
+}
+
+h1 + p {
+  transition-delay: .2s;
+}
+
+h1 ~ * {
+  transition-delay: .4s;
+}
+
+h2 ~ * {
+  transition-delay: 1s;
+}
+
+article {
+  view-transition-name: article;
+}
+
+::view-transition-old(article) {
+  transition: all .8s;
+  transform: scale(1.2)translateY(2em);
+}
+</style>
+<link href="/@nue/syntax.css" rel="stylesheet">
+<script src="/@nue/hotreload.js" type="module"></script>
+<script src="/@nue/view-transitions.js" type="module"></script>
+    
+  </head>
+
+  <body>
+    
+    <header>
+  <nav><a href="/">Carnivoor Experiment</a>
+<a href="/contact">Contact</a></nav>
+</header>
+    
+    <main>
+    
+
+    <article>
+      <header>
+  <h1>Crafting a scaleable CSS design system</h1>
+  <p>
+    <time datetime="2024-09-15T00:00:00.000Z">September 15, 2024</time> &#x2022; Content by AI &#x2022;
+    Photo credits: <a href="//dribbble.com/vlockn">vlockn</a>
+  </p>
+
+  <img width="1000" height="800" src="img/ui-1.png" alt="Hero image for Crafting a scaleable CSS design system">
+</header>
+      <section><p>Design systems are key to managing code at scale, but creating one that&#x2019;s flexible and maintainable takes work. A key to success is to break UI elements into reusable, abstracted components. When building a CSS design system, focus on these areas:</p>
+<ol><li><p><strong>Respect constraints</strong>: Construct stylistic foundations for typography, <a href="color-strategies.html">color palettes</a>, spacing, etc. But don&#x2019;t be overly prescriptive. Leave room for one-off deviations.</p></li>
+<li><p><strong>Reusable components</strong>: Break UI elements into reusable, abstracted components. A button should be built independently from where it&#x2019;s used. This promotes consistency across properties and apps.</p></li>
+<li><p><strong>Clear naming conventions</strong>: Utilize consistent, semantic naming for classes, variables, mixins, etc. This improves developer efficiency and organization.</p></li></ol></section>
+
+<section><h2>Keep things minimal</h2>
+<p>It&apos;s important to keep things lightweight: Write CSS that&#x2019;s DRY, separating structure from skin using methodologies like BEM. Don&apos;t over-engineer - keep logic simple.</p>
+<pre><code language="html"><span><i>&lt;</i><strong>figure </strong><label>@name</label><i>=</i><em>&quot;img&quot;</em> <i>:</i><b>class</b><i>=</i><em>&quot;class&quot;</em> <i>:</i><b>id</b><i>=</i><em>&quot;id&quot;</em><i>&gt;</i></span>
+<span>  <i>&lt;</i><strong>img </strong><b>loading</b><i>=</i><em>&quot;lazy&quot;</em> <i>:</i><b>alt</b><i>=</i><em>&quot;alt&quot;</em> <i>:</i><b>src</b><i>=</i><em>&quot;_ || src&quot;</em><i>&gt;</i></span>
+<span></span>
+<span><del>   <i>&lt;</i><strong>figcaption </strong><i>:</i><b>if</b><i>=</i><em>&quot;caption&quot;</em><i>&gt;</i><i>{</i><i>{</i> caption <i>}</i><i>}</i><i>&lt;</i><i>/</i><strong>figcaption</strong><i>&gt;</i></del></span>
+<span></span>
+<span><ins>   <i>&lt;</i><strong>p </strong><i>:</i><b>if</b><i>=</i><em>&quot;caption&quot;</em><i>&gt;</i><i>{</i><i>{</i> caption <i>}</i><i>}</i><i>&lt;</i><i>/</i><strong>p</strong><i>&gt;</i></ins></span>
+<span></span>
+<span>  <i>&lt;</i><strong>script</strong><i>&gt;</i></span>
+<span>    <mark><b>constructor</b><i>(</i>data<i>)</i></mark> <i>{</i></span>
+<span>      this<i>.</i><b>caption</b> <i>=</i> data<i>.</i>caption <i>|</i><i>|</i> <em>&apos;&apos;</em></span>
+<span>    <i>}</i></span>
+<span>  <i>&lt;</i><i>/</i><strong>script</strong><i>&gt;</i></span>
+<span><i>&lt;</i><i>/</i><strong>figure</strong><i>&gt;</i></span></code></pre>
+<p>Use gradual rollouts: Introduce changes incrementally over time. Don&apos;t rebuild everything at once. Maintain backwards compatibility.</p>
+<p>By investing in these areas, you can craft a design system that brings cohesion and consistency to products, while still being flexible enough to allow for creative solutions. The ultimate goal is scalable, maintainable CSS that matches the ever-evolving needs of organizations and developers alike. Put in the work upfront, and your system will pay dividends down the road.</p>
+<figure><img loading="lazy" src="img/ui-2.png"></figure>
+<p>Once a painting is underway, digital photography can also assist the process. Taking in-progress photos allows you to see compositions with fresh eyes. You can spot areas for improvement, mistakes that need correcting, or places that would benefit from increased attention. Like having an undo button, it gives the opportunity for editing mid-painting.</p>
+<blockquote><p>Put in the work upfront, and your system will pay dividends down the road.</p></blockquote>
+
+
+<div class="blue"><pre><code language="html"><i>&lt;</i><strong>form </strong><label>@name</label><i>=</i><em>&quot;join-list&quot;</em><i>&gt;</i>
+  <i>&lt;</i><strong>label</strong><i>&gt;</i>
+    <i>&lt;</i><strong>h4</strong><i>&gt;</i>Your name<i>&lt;</i><i>/</i><strong>h4</strong><i>&gt;</i>
+    <i>&lt;</i><strong>input </strong><b>type</b><i>=</i><em>&quot;text&quot;</em> <b>name</b><i>=</i><em>&quot;name&quot;</em> required<i>&gt;</i>
+  <i>&lt;</i><i>/</i><strong>label</strong><i>&gt;</i>
+
+<dfn>  <i>&lt;</i><strong>label</strong><i>&gt;</i></dfn>
+<dfn>    <i>&lt;</i><strong>h4</strong><i>&gt;</i>Your email<i>&lt;</i><i>/</i><strong>h4</strong><i>&gt;</i></dfn>
+<dfn>    <i>&lt;</i><strong>input </strong><b>type</b><i>=</i><em>&quot;email&quot;</em> <u><b>name</b><i>=</i><em>&quot;email&quot;</em> required</u><i>&gt;</i></dfn>
+<dfn>  <i>&lt;</i><i>/</i><strong>label</strong><i>&gt;</i></dfn>
+
+  <i>&lt;</i><strong>label</strong><i>&gt;</i>
+    <i>&lt;</i><strong>h4</strong><i>&gt;</i>Your requirements<i>&lt;</i><i>/</i><strong>h4</strong><i>&gt;</i>
+    <i>&lt;</i><strong>textarea </strong><b>name</b><i>=</i><em>&quot;feedback&quot;</em> <b>placeholder</b><i>=</i><em>&quot;Type here...&quot;</em><i>/</i><i>&gt;</i>
+  <i>&lt;</i><i>/</i><strong>label</strong><i>&gt;</i>
+  <i>&lt;</i><strong>button</strong><i>&gt;</i>I<i>&apos;</i>m interested<i>&lt;</i><i>/</i><strong>button</strong><i>&gt;</i>
+<i>&lt;</i><i>/</i><strong>form</strong><i>&gt;</i></code></pre></div></section>
+
+<section><h2>Summary</h2>
+<p>By investing in these areas, you can craft a design system that brings cohesion and consistency to products, while still being flexible enough to allow for creative solutions. The ultimate goal is scalable, maintainable CSS that matches the ever-evolving needs of organizations and developers alike. Put in the work upfront, and your system will pay dividends down the road.</p>
+<figure><img loading="lazy" src="img/ui-3.png"></figure>
+<p>Using color effectively is a vital part of web design. When planned intentionally, your color palette creates visual harmony across your website or application. A cohesive color scheme boosts recognition of your brand, while making the interface feel cohesive.</p></section>
+      
+    </article>
+
+    
+  </main>
+    <footer>
+  <nav><a href="/">&#xa9; Mauricio Wolff</a>
+<a href="//linkedin.com/in/mauriciowolff"><img src="/img/linkedin.svg" width="22" height="22" alt="LinkedIn profile"></a>
+<a href="//github.com/bitbonsai/carnivoorexperiment"><img src="/img/github.svg" width="22" height="22" alt="Github Projects"></a>
+<a href="//mauriciowolff.com"><img src="/img/website.svg" width="22" height="22" alt="Author&apos;s personal website"></a></nav>
+</footer>
+    
+  </body>
+
+</html>
