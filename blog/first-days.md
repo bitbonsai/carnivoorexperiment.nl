@@ -11,11 +11,9 @@ So, the experiment has started. First few days, no real surprises.
 
 Few cravings, sometimes I miss fruits. One of this nights I drank a cup of warm milk, which is outside the protocol. I was sleepy and will use that as an excuse.
 
-I'm a bit more tired than usual, and not so energetic. Sleep is not normal, I don't know if it's the jet lag or the diet. I'm waking up around 3am every night, not sure why. So I just don't get the phone and close my eyes until I sleep.
+I'm a bit more tired than usual, and not so energetic. Sleep is not normal yet... I'm waking up around 3am every night, regardless of the time I go to bed. So I just don't get the phone and close my eyes until I go back to sleep. I read somewhere that this could be lack of carbs, triggering a cortisol spike around 3am. I'm not sure if it's true, though. Will keep the protocol and see what happens after one week.
 
-I read somewhere that this could be lack of carbs, triggering a cortisol release around 3am. I'm not sure if it's true, though. Will keep the protocol and see what happens after one week.
-
-I remember that when I did keto I had the keto flu for 1.5 weeks, and woke up one day like nothing happened. So it might be the body adjusting to the new diet.
+I remember that when I did keto I had the keto flu for 1.5 weeks, until I woke up one day like nothing happened. So it might be the body adjusting to the new normal.
 
 ### Eating out
 
