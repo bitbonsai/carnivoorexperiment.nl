@@ -31,7 +31,7 @@ I'm going to the gym 5-6 days a week, for about half an hour. I'm not sure if it
 
 ### Any physical difference?
 
-I've notice my face is not as bloated as it was in Brazil, probably because I was eating lots of sweets, or and basically anything interesting I came across, and drinking less water.
+I've notice my face is not as bloated as it was in Brazil, probably because I was eating lots of sweets, and basically anything interesting I came across, and drinking less water.
 
 I can see some difference in the belly area, less bloat and more normal for my standards.
 
