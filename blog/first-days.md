@@ -9,7 +9,7 @@ photoLink: https://unsplash.com/@maddibazzocco?utm_content=creditCopyText&utm_me
 
 So, the experiment has started. First few days, no real surprises.
 
-Few cravings, sometimes I miss fruits. One of this nights I drank a cup of warm milk, which is outside the protocol. I was sleepy and will use that as an excuse.
+Few cravings, sometimes I miss fruits. A few nights ago I drank a cup of warm milk, which is outside the protocol. I was sleepy and will use that as an excuse.
 
 I'm a bit more tired than usual, and not so energetic. Sleep is not normal yet... I'm waking up around 3am every night, regardless of the time I go to bed. So I just don't get the phone and close my eyes until I go back to sleep. I read somewhere that this could be lack of carbs, triggering a cortisol spike around 3am. I'm not sure if it's true, though. Will keep the protocol and see what happens after one week.
 
