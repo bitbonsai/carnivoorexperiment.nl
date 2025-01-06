@@ -22,7 +22,7 @@ var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require
   throw Error('Dynamic require of "' + x + '" is not supported');
 });
 
-// ../.bun/install/global/node_modules/nuekit/src/browser/hotreload.js
+// ../../.bun/install/global/node_modules/nuekit/src/browser/hotreload.js
 import { mountAll } from "./mount.js";
 var sse = new EventSource(location.origin);
 var $$ = (query, root = document) => [...root.querySelectorAll(query)];

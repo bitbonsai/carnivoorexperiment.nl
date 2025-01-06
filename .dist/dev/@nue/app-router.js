@@ -1,4 +1,4 @@
-// ../.bun/install/global/node_modules/nuekit/src/browser/app-router.js
+// ../../.bun/install/global/node_modules/nuekit/src/browser/app-router.js
 import { onclick, loadPage, setActive } from "./view-transitions.js";
 var is_browser = typeof window == "object";
 var fns = [];

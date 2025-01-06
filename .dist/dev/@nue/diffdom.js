@@ -1,4 +1,4 @@
-// ../.bun/install/global/node_modules/diff-dom/dist/index.js
+// ../../.bun/install/global/node_modules/diff-dom/dist/index.js
 var __assign = function() {
   __assign = Object.assign || function __assign(t) {
     var arguments$1 = arguments;

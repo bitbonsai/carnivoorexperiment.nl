@@ -1,4 +1,4 @@
-// ../.bun/install/global/node_modules/nuekit/src/browser/view-transitions.js
+// ../../.bun/install/global/node_modules/nuekit/src/browser/view-transitions.js
 function $(query, root = document) {
   return root.querySelector(query);
 }

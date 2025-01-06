@@ -1,4 +1,4 @@
-// ../.bun/install/global/node_modules/nuejs-core/src/browser/for.js
+// ../../.bun/install/global/node_modules/nuejs-core/src/browser/for.js
 function for_default(opts) {
   const { root, fn, fns, deps, ctx } = opts;
   var anchor, current, items, $keys, $index, is_object_loop, blocks = [];
@@ -92,7 +92,7 @@ function for_default(opts) {
   return { update };
 }
 
-// ../.bun/install/global/node_modules/nuejs-core/src/browser/if.js
+// ../../.bun/install/global/node_modules/nuejs-core/src/browser/if.js
 function if_default(opts) {
   const { root, fn, fns, deps, ctx } = opts;
   const blocks = [];
@@ -131,7 +131,7 @@ function if_default(opts) {
   return { update, next };
 }
 
-// ../.bun/install/global/node_modules/nuejs-core/src/browser/nue.js
+// ../../.bun/install/global/node_modules/nuejs-core/src/browser/nue.js
 var CONTROL_FLOW = { ":if": if_default, ":for": for_default };
 var CORE_ATTR = ["class", "style", "id"];
 function createApp(component, data = {}, deps = [], $parent = {}) {

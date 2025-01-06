@@ -22,7 +22,7 @@ var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require
   throw Error('Dynamic require of "' + x + '" is not supported');
 });
 
-// ../.bun/install/global/node_modules/nuekit/src/browser/mount.js
+// ../../.bun/install/global/node_modules/nuekit/src/browser/mount.js
 var apps = [];
 var remounts = 0;
 async function importAll(hmr_path) {

@@ -3,6 +3,8 @@ title: The idea
 thumb: img/the-idea-thumb.jpg
 og: img/the-idea.jpg
 date: 2025-01-01
+photoAuthor: DALL-E 3
+photoLink: https://openai.com/index/dall-e-3/
 ---
 
 The idea is simple. Eat only meat, water and salt, for a period of time, and observe the effects.
@@ -11,7 +13,7 @@ This is not the first time I do this. When I [removed my appendix](#addlink) in 
 
 In the book there was a compelling argument for meat to reduce infection, and there I was, in a hospital bed, thinking how I could reduce infection after a surgery. It was a no-brainer for me to try it.
 
-After the surgery I did a lot of exams, and found out my LDL was too high. The GP recommended taking statins, which I didn't want to. He recommended me to an specialist, that I found on the internet was the biggest name on statins. So I searched who was the best doctor in Australia that disliked statins, [Paul Mason MD](https://www.drpaulmason.com.au/). 
+After the surgery I did a lot of exams, and found out my LDL was too high. The GP recommended taking statins, which I didn't want to. He recommended me to an specialist, that I found on the internet was the biggest name on statins. So I searched who was the best doctor in Australia that disliked statins, [Paul Mason MD](https://www.drpaulmason.com.au/).
 
 ### The autoimune protocol
 
