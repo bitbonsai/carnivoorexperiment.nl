@@ -9,7 +9,7 @@ photoLink: https://unsplash.com/@kchance8?utm_content=creditCopyText&utm_medium=
 
 Yesterday was pretty interesting!
 
-We hosted a dinner with some friends at our place, and everyone was buzzing with excitement.
+We hosted a dinner with some friends at our place, and everyone was happy and having a great time.
 
 The table was a feast of amazing dishes everyone brought along.
 
