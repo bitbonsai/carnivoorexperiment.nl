@@ -6,28 +6,45 @@
     <meta charset="utf-8">
 <title>Carnivoor Experiments / Contact</title>
 <meta name="generator" content="Nue v1.0.0-RC.1 (nuejs.org)">
-<meta name="date.updated" content="2025-01-05T14:22:34.863Z">
+<meta name="date.updated" content="2025-01-07T12:35:50.591Z">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="Mauricio Wolff">
 <meta property="og:title" content="Contact">
-<meta property="og:image" content="https://carnivoorexperiment.nl/img/og_emma.png">
+<meta property="og:image" content="https://carnivoorexperiment.nl/img/og.png">
 <meta name="nue:components" content="/contact/contact.js">
 <meta name="nue:include" content="form">
 <meta name="nue:globals" content="@global">
 <meta name="nue:libs" content="@library">
-<link rel="icon" type="image/jpg" href="/img/favicon.jpg">
+<link rel="icon" type="image/png" href="/img/favicon.png">
 <style href="/@global/colors.css">:root {
+  --bg-color: #fafafa;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
   --gray-300: #d1d5db;
   --gray-500: #6b7280;
   --gray-800: #1f2937;
   --gray-900: #111827;
+  --icon-color: #111827;
   --main-500: #441500;
   --main-600: #cc4600;
   --pink-gradient: linear-gradient(#e879f9, #ec4899);
   --blue-gradient: linear-gradient(#0ea5e9, #67e8f9);
   --marker: #ffff7a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #16181b;
+    --gray-100: #1f2937;
+    --gray-200: #4b5563;
+    --gray-300: #6b7280;
+    --gray-500: #d1d5db;
+    --gray-800: #f3f4f6;
+    --gray-900: #fff;
+    --main-500: #cc4600;
+    --main-600: #ea5201;
+    --icon-color: #f3f4f6;
+  }
 }
 </style>
 <style href="/@global/layout.css">*, :before, :after {
@@ -39,7 +56,8 @@ ul, ol, figure, pre {
 }
 
 body {
-  max-width: 1000px;
+  background-color: var(--bg-color);
+  max-width: 70rem;
   margin: 0 auto;
   padding: 2% 5%;
 }
@@ -51,7 +69,7 @@ body > header nav {
 }
 
 body > header nav > a:first-child {
-  background: url("/img/avatar-rounded.jpg") 0 / 2em no-repeat;
+  background: url("/img/favicon.png") 0 / 2em no-repeat;
   padding-left: 2.5em;
 }
 
@@ -64,7 +82,7 @@ body article > header {
 }
 
 body article > section {
-  max-width: 650px;
+  max-width: 75ch;
   margin: 0 auto;
 }
 
@@ -90,13 +108,35 @@ body > footer nav a:hover {
 body > footer nav a:nth-child(2) {
   margin-left: auto;
 }
+
+svg {
+  color: var(--icon-color);
+}
+
+.latest-updates a {
+  opacity: .5;
+  transition: opacity .25s ease-in-out;
+}
+
+.latest-updates a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
 </style>
-<style href="/@global/typography.css">body {
-  font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto;
+<style href="/@global/typography.css">html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  color: var(--gray-800);
+  line-height: 1.4;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto;
 }
 
 h1 {
   letter-spacing: -.03em;
+  color: var(--gray-900);
   font-size: 2.6rem;
 }
 
@@ -114,8 +154,29 @@ h1 + p {
   font-weight: 300;
 }
 
+h2 {
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+h2 + p {
+  color: var(--gray-300);
+  margin-top: 0;
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
 a {
+  color: var(--main-600);
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 nav :is(a) {
@@ -130,7 +191,7 @@ nav :is(a)[aria-selected] {
 
 p, li {
   color: var(--gray-800);
-  line-height: 1.65;
+  font-size: 1.24rem;
 }
 
 :is(p, li) strong {
@@ -255,9 +316,9 @@ main article section h1, main article section p {
   </main>
     <footer>
   <nav><a href="/">&#xa9; Mauricio Wolff</a>
-<a href="//x.com/tipiirai"><img src="/img/twitter.svg" width="22" height="22" alt="Twitter (X) profile"></a>
-<a href="//github.com/nuejs/nue/"><img src="/img/github.svg" width="22" height="22" alt="Github Projects"></a>
-<a href="//linkedin.com/in/tipiirai"><img src="/img/linkedin.svg" width="22" height="22" alt="LinkedIn profile"></a></nav>
+<a href="//linkedin.com/in/mauriciowolff"><img src="/img/linkedin.svg" width="22" height="22" alt="LinkedIn profile"></a>
+<a href="//github.com/bitbonsai/carnivoorexperiment"><img src="/img/github.svg" width="22" height="22" alt="Github Projects"></a>
+<a href="//mauriciowolff.com"><img src="/img/website.svg" width="22" height="22" alt="Author&apos;s personal website"></a></nav>
 </footer>
     
   </body>
