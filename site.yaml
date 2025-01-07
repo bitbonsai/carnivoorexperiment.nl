@@ -1,4 +1,3 @@
-
 globals: ["@global"]
 libs: ["@library"]
 
@@ -19,7 +18,6 @@ port: 8083
 origin: https://carnivoorexperiment.nl
 og: /img/og.jpg
 
-
 navigation:
   header:
     - Carnivoor Experiment: /
@@ -28,21 +26,17 @@ navigation:
   footer:
     - © Mauricio Wolff: /
 
-    - image: /img/linkedin.svg
+    - image: /img/icon-linkedin.svg
       url: //linkedin.com/in/mauriciowolff
       alt: LinkedIn profile
       size: 22 x 22
 
-    - image: /img/github.svg
+    - image: /img/icon-github.svg
       url: //github.com/bitbonsai/carnivoorexperiment
       alt: Github Projects
       size: 22 x 22
 
-    
-    - image: /img/website.svg
+    - image: /img/icon-website.svg
       url: //mauriciowolff.com
       alt: Author's personal website
       size: 22 x 22
-
-
-
