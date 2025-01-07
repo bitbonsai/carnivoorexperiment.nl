@@ -1,6 +1,6 @@
 ---
 title: The idea
-thumb: img/the-idea-thumb.jpg
+thumb: img/the-idea-thm.jpg
 og: img/the-idea.jpg
 date: 2025-01-01
 photoAuthor: DALL-E 3

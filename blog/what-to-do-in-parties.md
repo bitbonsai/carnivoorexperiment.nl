@@ -1,6 +1,6 @@
 ---
 title: What to do in parties?
-thumb: img/what-to-do-in-parties-thumb.jpg
+thumb: img/what-to-do-in-parties-thm.jpg
 og: img/what-to-do-in-parties.jpg
 date: 2025-07-07
 photoAuthor: Kelsey Chance
