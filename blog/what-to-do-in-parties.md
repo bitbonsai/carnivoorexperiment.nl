@@ -34,3 +34,11 @@ Here's my tip list if I find yourself in a similar situation again:
 5. Pro tip: If you're air frying burgers, flip them once for best results.
 
 And that's it. Felt really good to have people around, everybody was happy, and I was able to keep my experiment without any major issues or having to talk too much about it.
+
+## No updates then?
+
+Oh well. Sleep is still messed up. Waking up at 3:30am. Now I'm using ocean waves sound to go back to sleep, which works faster for me.
+
+Cravings are lower, today I put some spekblokjes in my rib eye. Tastier and more fullfilling :)
+
+Oh, and I had a tea. And black coffee. Will change the index page to add those, I'm having those regularly, so it's not just meat, water and salt.
