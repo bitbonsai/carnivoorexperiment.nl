@@ -26,3 +26,5 @@ Today I'm completing 1 week of this experiment. What's going on, what are the pe
 - **I'm feeling thirsty**. And I admit I'm not drinking enough water. Will work on that on the second week.
 
 For now, that's it.
+
+PS: This image reminds me of [Depeche Mode's Music For The Masses](https://youtu.be/Ozf8Wikjt18?si=H-mkvNRUGNfZA-R-) Doesn't it? I love that album. ❤️
