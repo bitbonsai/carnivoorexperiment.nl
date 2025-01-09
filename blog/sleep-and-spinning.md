@@ -11,15 +11,15 @@ photoLink: https://unsplash.com/@donovan_valdivia?utm_content=creditCopyText&utm
 
 I did wake up at some point, went to the bathroom, then came back to bed and slept. That was good. I don't know what time it was.
 
-Then I woke up again at some point. Kept my eyes closed, didn't want to know what time it was. Until I did. 3:53 am.
+Then I woke up again at some point. Kept my eyes closed, didn't want to know what time it was. Until I did. It was 3:53 am.
 
-This time though, I tried a different approach. I started to tell a story that I know, eyes closed, remembering all the details. At some point I realized I slept, because I woke up again and was dreaming something different than the story. Then the strategy is to keep the story going from the moment I stopped telling it in my mind. If I didn't remember exactly where I stopped, I'd rewind to the last time I remembered it.
+This time though, I tried a different approach. I started to tell a story that I know, eyes closed, remembering all the details. At some point I realized I slept, because I woke up again and was dreaming something different than the story. Then the strategy was to keep the story going from the moment I stopped telling it in my mind. If I didn't remember exactly where I stopped, I'd rewind to the last time I remembered it.
 
 **And it worked!!!**
 
-I slept for about 8 hours, for the first time in a while.
+I slept for about 8 hours, for the first time in a few days.
 
-I'm optimistic about the adaptation of the diet now. I'll buy some ketones strips from Amazon to check if I'm in ketosis already, just to make sure. And because I like to measure things.
+I'm optimistic about the adaptation of the diet now. I'll buy some [ketones strips](https://www.amazon.nl/-/en/NKD-Living-Ketone-Test-Strips/dp/B09RZTLH8Y?crid=UIACX5ET4P7Z&dib=eyJ2IjoiMSJ9.uN8fQY-2E0iITqRBSNgGu96hOKK3MlsBJZuso6mHJOoe1yjDjNAOl_Em47xq0lBEBePvDWGrbXre-FdNetLfnJoe64I8nH9knIyk3Pw9-IkbgORCvwp3SQu4v3yWAL7Xjrwf05R8KDKNByRYEPhIG5WOtazFVsz_szz84aSkm6B1fQJ27CVAH0mmwiX8ZdtEK1Gxsyf7O6VncIQlQDDz-sVZouRcLjoNpnpCHT9YPzLr3mFqMhPN3rs2wT-hXDexwtYCDc5wbJJJ8mJTBgoCMz_BJyEQMNNAp3uJQ2GH27sfumOGIkTLGRREoKXzN251nR7wqvymf7MXG2xinZfbivwvIdPSpt6UTuhfiCN6Jcp0pcNkb3wiqNgG2xxj88023hbNV1Rhd_NFbqBy3VJGGS-cYnGWvcJLXaSMZ9RJsqSFheSFd5cLTMyfZPCixX6J.NIOhgw97d1kVjSJlDJmVnV_CkYAwS-hHJIB1FbMvBwo&dib_tag=se&keywords=ketonen+strips&qid=1736423969&sprefix=keton,aps,204&sr=8-5) from Amazon to check if I'm in ketosis already, just to make sure. And because I like to measure things.
 
 Another thing I did today was to start the day with 1 liter of water. Since I wasn't drinking enough water, it's a way to ensure I'll drink enough water throughout the day. It's easier for me if I do it in batches of 1 liter, 3 times a day (morning, noon, evening).
 
