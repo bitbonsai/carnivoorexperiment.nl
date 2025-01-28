@@ -1,7 +1,7 @@
 ---
 title: An interesting meal
 thumb: img/meats-thm.jpg
-og: img/meats.jpg
+og: img/meats1.jpg
 date: 2025-01-28
 photoAuthor: Iulia Buta
 photoLink: https://unsplash.com/@iuliabuta?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
