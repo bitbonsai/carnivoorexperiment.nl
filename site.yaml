@@ -21,7 +21,7 @@ og: /img/og.jpg
 navigation:
   header:
     - Carnivoor Experiment: /
-    - Contact: /contact
+    # - Contact: /contact
 
   footer:
     - © Mauricio Wolff: /

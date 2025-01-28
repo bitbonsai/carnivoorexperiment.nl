@@ -1,4 +1,3 @@
-
 <script>
   import { loadPage } from '/@nue/view-transitions.js'
 </script>
@@ -15,15 +14,24 @@
   </label>
 
   <label>
-    <span>Requirements</span>
-    <textarea name="feedback" placeholder="Type here..."/>
+    <span>Message</span>
+    <textarea name="message" placeholder="Type here..." />
   </label>
 
-  <button>Lets talk!</button>
-
-  <script>
-    submit() {
-      loadPage('thanks.html')
-    }
-  </script>
+  <button type='submit'>Lets talk!</button>
 </form>
+<script>
+  async function submit(event) {
+    try {
+      const formData = new FormData(this.$el);
+      const response = await fetch('/functions/contact', {
+        method: 'POST',
+        body: formData
+      });
+      if (response.ok) {
+        loadPage('thanks.html');
+      }
+    } catch (err) {
+      console.error('Failed to submit:', err);
+    }
+  }  </script>

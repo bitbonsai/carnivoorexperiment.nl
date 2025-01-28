@@ -1,9 +1,6 @@
 export async function onRequestPost(context) {
   try {
     let input = await context.request.formData();
-
-    // Convert FormData to JSON
-    // NOTE: Allows multiple values per key
     let output = {};
     for (let [key, value] of input) {
       let tmp = output[key];
@@ -13,14 +10,37 @@ export async function onRequestPost(context) {
         output[key] = [].concat(tmp, value);
       }
     }
-// TODO record to database
-    let pretty = JSON.stringify(output, null, 2);
-    return new Response(pretty, {
+
+    // Send email using Cloudflare Email Workers
+    const send_request = new Request("https://api.mailchannels.net/tx/v1/send", {
+      method: "POST",
       headers: {
-        "Content-Type": "application/json;charset=utf-8",
+        "content-type": "application/json",
       },
+      body: JSON.stringify({
+        personalizations: [
+          {
+            to: [{ email: "your@email.com", name: "Your Name" }],
+          },
+        ],
+        from: {
+          email: "no-reply@yourdomain.com",
+          name: "Contact Form",
+        },
+        subject: "New Contact Form Submission",
+        content: [
+          {
+            type: "text/plain",
+            value: JSON.stringify(output, null, 2),
+          },
+        ],
+      }),
     });
+
+    await fetch(send_request);
+
+    return Response.redirect("/contact/thanks", 302);
   } catch (err) {
-    return new Response("Error parsing JSON content", { status: 400 });
+    return new Response("Error processing form", { status: 400 });
   }
 }
