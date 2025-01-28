@@ -27,6 +27,12 @@ And that was it. Around 800g of diverse meats, and I was full.
 
 This week there's a project going on at work, so I only had time to eat this and go to the gym for half an hour. I also had a Dutch class, but I asked to transfer it to the next week because my brain was fried.
 
+### Another day, another mix
+
+So, today (28) I ate for lunch lamb, stake and bacon. 
+
+im liking this mixed protein stuff 🤣
+
 ### Next steps
 
 Next week I'll be doing this for a month. I'm feeling good, lighter and more focused. So I'll keep going until I feel like 😊.
