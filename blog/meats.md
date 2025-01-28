@@ -31,7 +31,7 @@ This week there's a project going on at work, so I only had time to eat this and
 
 So, today (28) I ate for lunch lamb, stake and bacon. 
 
-im liking this mixed protein stuff 🤣
+I'm liking this mixed protein stuff 🤣
 
 ### Next steps
 
