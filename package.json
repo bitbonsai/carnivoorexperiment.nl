@@ -1,0 +1,23 @@
+{
+  "name": "carnivoorexperiment.nl",
+  "version": "1.0.0",
+  "description": "This is based on the simple blog website template for [Nue](https://nuejs.org/). It's hosted for free on [Cloudfare](https://cloudfare.com).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitbonsai/carnivoorexperiment.nl.git"
+  },
+  "keywords": [],
+  "author": "Mauricio Wolff - aka bitbonsai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bitbonsai/carnivoorexperiment.nl/issues"
+  },
+  "homepage": "https://github.com/bitbonsai/carnivoorexperiment.nl#readme",
+  "devDependencies": {
+    "nuekit": "^1.0.0-RC.2"
+  }
+}
