@@ -6,8 +6,7 @@ date: 2025-01-28
 photoAuthor: Iulia Buta
 photoLink: https://unsplash.com/@iuliabuta?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
 ---
-
-**A short update. I'm still [alive and kicking](https://youtu.be/ljIQo1OHkTI?si=2-Y756lriUR6cq16)**
+**A short update with some recipes. I'm still [alive and kicking](https://youtu.be/ljIQo1OHkTI?si=2-Y756lriUR6cq16)**
 
 Just wanted to share my meal from yesterday. Yes, sometimes I have OMAD (one meal a day) not because I plan to do it, but because I'm so satiated there's no need to eat at night.
 
