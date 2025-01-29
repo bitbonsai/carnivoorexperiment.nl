@@ -4,7 +4,8 @@
   "description": "This is based on the simple blog website template for [Nue](https://nuejs.org/). It's hosted for free on [Cloudfare](https://cloudfare.com).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nue build -p"
   },
   "repository": {
     "type": "git",
