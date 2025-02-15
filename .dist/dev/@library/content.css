@@ -42,8 +42,7 @@ blockquote {
 
 blockquote p {
   color: var(--gray-900);
-  font-size: 140%;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 1.5;
 }
 

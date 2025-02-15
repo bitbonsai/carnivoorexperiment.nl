@@ -43,9 +43,8 @@ blockquote {
   margin: 2.5em 0;
 
   p {
-    font-weight: 600;
+    font-weight: 300;
     line-height: 1.5;
-    font-size: 140%;
     color: var(--gray-900);
   }
 
