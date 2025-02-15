@@ -29,9 +29,9 @@ ul:has(time) time {
 ul:has(time) h2 {
   color: var(--gray-800);
   text-wrap: balance;
-  margin: .3em 0 0;
-  font-size: 1.05em;
-  font-weight: 500;
+  margin: 0;
+  font-size: .75em;
+  font-weight: 300;
   line-height: 1.5;
 }
 
