@@ -7,7 +7,7 @@ photoAuthor: Andrew Valdivia
 photoLink: https://unsplash.com/@donovan_valdivia?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
 ---
 
-So, last update Feb 12, and today is July 20... that's the thing with **blogs** and **life**. When the latter takes over, the former fall off the cracks... Ok, let's go.
+So, last update `Feb 12`, and today is `July 20`... that's the thing with **blogs** and **life**. When the latter takes over, the former fall off the cracks... Ok, let's go.
 
 ### What happened in February?
 
