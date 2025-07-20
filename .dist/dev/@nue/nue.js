@@ -81,7 +81,7 @@ function for_default(opts) {
     }
     if (arr) {
       const p = root.parentElement;
-      anchor = new Text("");
+      anchor = document.createTextNode("");
       p.insertBefore(anchor, root);
       p.removeChild(root);
       items = arrProxy(arr);
@@ -122,7 +122,7 @@ function if_default(opts) {
   function update() {
     if (!anchor) {
       const wrap = root.parentElement;
-      anchor = new Text("");
+      anchor = document.createTextNode("");
       wrap.insertBefore(anchor, root);
     }
     const active = blocks.find((bl) => bl.fn(ctx));
@@ -194,8 +194,12 @@ function createApp(component, data = {}, deps = [], $parent = {}) {
   }
   function setAttr(node, key, val) {
     const orig = node.getAttribute(key);
-    if (orig !== val)
-      node.setAttribute(key, val);
+    if (orig !== val) {
+      if (val)
+        node.setAttribute(key, val);
+      else
+        node.removeAttribute(key);
+    }
   }
   function processAttr(node, name, value) {
     if (name == "ref" || name == "name")
@@ -215,7 +219,7 @@ function createApp(component, data = {}, deps = [], $parent = {}) {
       });
     }
     if (char == ":") {
-      if (real != "bind") {
+      if (!["html", "bind"].includes(real)) {
         expr.push((_) => {
           let val = fn(ctx);
           setAttr(node, real, renderVal(val));
@@ -224,8 +228,10 @@ function createApp(component, data = {}, deps = [], $parent = {}) {
     } else if (char == "@") {
       node[`on${real}`] = (evt) => {
         fn.call(ctx, ctx, evt);
-        const up = $parent?.update || update;
-        up();
+        const $fn = $parent?.update;
+        if ($fn)
+          $fn();
+        update();
       };
     } else if (char == "$") {
       expr.push((_) => {
@@ -234,8 +240,9 @@ function createApp(component, data = {}, deps = [], $parent = {}) {
           node.removeAttribute(real);
       });
     }
-    if (real == "html")
+    if (real == "html") {
       expr.push((_) => node.innerHTML = fn(ctx));
+    }
   }
   function walkChildren(node, fn) {
     let child = node.firstChild;
@@ -299,6 +306,7 @@ function createApp(component, data = {}, deps = [], $parent = {}) {
       if (comp) {
         const app = createApp(comp, data2, deps, ctx);
         app.mount(wrap);
+        return app;
       }
     },
     mount(wrap) {
@@ -345,21 +353,22 @@ function createApp(component, data = {}, deps = [], $parent = {}) {
     unmount() {
       try {
         self.root.remove();
-      } catch (e) {
-      }
+      } catch (e) {}
       impl.unmounted?.call(ctx, ctx);
       update();
     }
   };
   const ctx = new Proxy({}, {
-    get(__, key) {
+    get(_, key) {
+      if (key === "$attrs")
+        return $parent.$attrs || {};
       for (const el of [self, impl, data, $parent, $parent.bind]) {
         const val = el && el[key];
         if (val != null)
           return val;
       }
     },
-    set(__, key, val) {
+    set(_, key, val) {
       if ($parent && $parent[key] !== undefined) {
         $parent[key] = val;
         $parent.update();

@@ -9,14 +9,15 @@ var scrollPos = {};
 async function loadPage(path, replace_state) {
   dispatchEvent(new Event("before:route"));
   scrollPos[location.pathname] = window.scrollY;
-  if (!replace_state)
-    history.pushState({ path }, 0, path);
   const dom = mkdom(await getHTML(path));
   const title = $("title", dom)?.textContent;
   if (title)
     document.title = title;
   const query = '[name="nue:components"]';
-  $(query).content = $(query, dom).content;
+  const comps = $(query, dom);
+  if (!comps)
+    return location.href = path;
+  $(query).content = comps.content;
   for (const script of $$("script[src]", dom)) {
     await import(script.getAttribute("src"));
   }
@@ -32,6 +33,8 @@ async function loadPage(path, replace_state) {
     dispatchEvent(new Event(`route:${app || "home"}`));
     setActive(path);
   });
+  if (!replace_state)
+    history.pushState({ path }, 0, path);
 }
 function onclick(root, fn) {
   root.addEventListener("click", (e) => {
@@ -42,7 +45,7 @@ function onclick(root, fn) {
     if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || !path || path[0] == "#" || path?.includes("//") || path?.startsWith("mailto:") || name?.includes(".") && !name?.endsWith(".html") || !!target)
       return;
     if (path != location.pathname)
-      fn(path, el);
+      fn(el.pathname, el);
     e.preventDefault();
   });
 }
@@ -50,18 +53,17 @@ function toRelative(path) {
   const curr = location.pathname;
   return curr.slice(0, curr.lastIndexOf("/") + 1) + path;
 }
-function setActive(path, attrname = "aria-selected") {
+function setActive(path, attrname = "aria-current") {
   if (path[0] != "/")
     path = toRelative(path);
   $$(`[${attrname}]`).forEach((el) => el.removeAttribute(attrname));
   $$("a").forEach((el) => {
     if (!el.hash && el.pathname == path) {
-      setTimeout(() => el.setAttribute(attrname, ""), 50);
+      setTimeout(() => el.setAttribute(attrname, "page"), 50);
     }
   });
 }
-var is_browser = typeof window == "object";
-if (is_browser) {
+function setupTransitions() {
   if (!document.startViewTransition) {
     document.startViewTransition = (fn) => fn();
   }
@@ -86,9 +88,19 @@ if (is_browser) {
     }
   });
 }
+function sameKids(kids_a, kids_b) {
+  if (kids_a.length != kids_b.length)
+    return false;
+  for (let i = 0;i < kids_a.length; i++) {
+    if (kids_a[i].tagName != kids_b[i].tagName)
+      return false;
+  }
+  return true;
+}
 function simpleDiff(a, b, ignore_main) {
-  a.classList.value = b.classList.value;
-  if (a.children.length == b.children.length) {
+  if (!a || !b)
+    return true;
+  if (sameKids(a.children, b.children)) {
     [...a.children].forEach((el, i) => {
       if (!(ignore_main && el.tagName == "MAIN"))
         updateBlock(el, b.children[i]);
@@ -99,7 +111,7 @@ function simpleDiff(a, b, ignore_main) {
   }
 }
 function updateBlock(a, b) {
-  const orig = a.outerHTML.replace(' aria-selected=""', "");
+  const orig = a.outerHTML.replace(' aria-current="page"', "");
   if (orig != b.outerHTML)
     a.replaceWith(b.cloneNode(true));
 }
@@ -165,7 +177,10 @@ function loadSheet(path, fn) {
   $("head").appendChild(el);
   el.onload = fn;
 }
+if (typeof window == "object")
+  setupTransitions();
 export {
+  setupTransitions,
   setActive,
   onclick,
   loadPage,

@@ -1446,14 +1446,10 @@ var DEFAULT_OPTIONS = {
     node.data = newValue;
     return;
   },
-  preVirtualDiffApply: function() {
-  },
-  postVirtualDiffApply: function() {
-  },
-  preDiffApply: function() {
-  },
-  postDiffApply: function() {
-  },
+  preVirtualDiffApply: function() {},
+  postVirtualDiffApply: function() {},
+  preDiffApply: function() {},
+  postDiffApply: function() {},
   filterOuterDiff: null,
   compress: false,
   _const: false,

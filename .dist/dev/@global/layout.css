@@ -1,4 +1,5 @@
-*, :before, :after {
+/* @global/layout.css */
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
@@ -14,9 +15,9 @@ body {
 }
 
 body > header nav {
+  display: flex;
   justify-content: space-between;
   margin-bottom: 4rem;
-  display: flex;
 }
 
 body > header nav > a:first-child {
@@ -43,9 +44,9 @@ body > footer {
 }
 
 body > footer nav {
+  display: flex;
   gap: .5em;
   padding: 1rem 0;
-  display: flex;
 }
 
 body > footer nav a {
@@ -70,6 +71,6 @@ svg {
 }
 
 .latest-updates a:hover {
-  opacity: 1;
   text-decoration: none;
+  opacity: 1;
 }

@@ -1,3 +1,4 @@
+/* @library/content.css */
 article a {
   color: var(--main-600);
   font-weight: 500;
@@ -27,10 +28,10 @@ img, pre {
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-  display: block;
 }
 
 blockquote {
@@ -49,6 +50,7 @@ blockquote p {
 blockquote strong {
   background-color: var(--marker);
   font-weight: inherit;
-  margin-inline: -.2em;
+  margin-inline-start: -.2em;
+  margin-inline-end: -.2em;
   padding: .1em .2em;
 }

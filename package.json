@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/bitbonsai/carnivoorexperiment.nl#readme",
   "devDependencies": {
-    "nuekit": "^1.0.0-RC.2"
+    "nuekit": "^1.0.0-beta.2"
   }
 }

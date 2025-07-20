@@ -1,9 +1,10 @@
+/* @library/cards.css */
 .pink, .blue {
   background-image: var(--pink-gradient);
+  overflow: hidden;
   border-radius: .8em;
   margin: 1.5em 0 2em;
   padding: 3em 0 0 3em;
-  overflow: hidden;
 }
 
 :is(.pink, .blue) pre {

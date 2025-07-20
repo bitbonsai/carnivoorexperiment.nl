@@ -25,7 +25,6 @@ var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require
 // ../../.bun/install/global/node_modules/nuekit/src/browser/hotreload.js
 import { mountAll } from "./mount.js";
 var sse = new EventSource(location.origin);
-var $$ = (query, root = document) => [...root.querySelectorAll(query)];
 var $ = (query, root = document) => root.querySelector(query);
 sse.onmessage = async function(e) {
   const data = e.data ? JSON.parse(e.data) : {};
@@ -46,8 +45,10 @@ sse.onmessage = async function(e) {
       dispatchEvent(new Event("reload"));
     }
   }
-  if (data.is_nue || data.is_htm)
+  if (data.is_dhtml || data.is_htm) {
     remount("/" + data.path.replace(data.ext, ".js"));
+    dispatchEvent(new Event("hmr"));
+  }
   if (css) {
     const href = `/${dir}${dir ? "/" : ""}${data.name}.css`;
     const orig = $(`[href="${href}"]`);
@@ -126,18 +127,6 @@ async function patch(html) {
   if (title)
     document.title = title;
   const diff = Diff.diff(old_body, body);
-  const flags = $$("[role=tab]").map((el) => el.getAttribute("aria-selected"));
   Diff.apply(old_body, diff);
-  restoreTabs(flags);
   await mountAll();
-}
-function toggleAttr(el, name, flag) {
-  flag ? el.setAttribute(name, 1) : el.removeAttribute(name);
-}
-function restoreTabs(flags) {
-  const panels = $$("[role=tabpanel]");
-  $$("[role=tab]").forEach((el, i) => {
-    toggleAttr(el, "aria-selected", flags[i]);
-    toggleAttr(panels[i], "hidden", !flags[i]);
-  });
 }

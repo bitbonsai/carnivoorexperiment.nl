@@ -4,22 +4,13 @@
 
   <head>
     <meta charset="utf-8">
-<title>Carnivoor Experiments / Sleep fixed and Spinning</title>
-<meta name="generator" content="Nue v1.0.0-RC.1 (nuejs.org)">
-<meta name="date.updated" content="2025-01-20T14:39:55.901Z">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="I did wake up at some point, went to the bathroom, then came back to bed and slept. That was good. I don&apos;t know what time it was.">
-<meta name="author" content="Mauricio Wolff">
-<meta property="og:title" content="Sleep fixed and Spinning">
-<meta property="og:description" content="I did wake up at some point, went to the bathroom, then came back to bed and slept. That was good. I don&apos;t know what time it was.">
-<meta property="og:image" content="https://carnivoorexperiment.nl/img/og.png">
-<meta property="article:published_time" content="Thu Jan 09 2025 01:00:00 GMT+0100 (Central European Standard Time)">
-<meta name="nue:components" content=" ">
-<meta name="nue:include" content="content cards motion">
-<meta name="nue:globals" content="@global">
-<meta name="nue:libs" content="@library">
+<title>Carnivoor Experiments / Sleep fixed and Spinning</title>
 <link rel="icon" type="image/png" href="/img/favicon.png">
-<style href="/@global/colors.css">:root {
+<script src="/@nue/hotreload.js" type="module"></script>
+<script src="/@nue/view-transitions.js" type="module"></script>
+<style href="/@global/colors.css">/* @global/colors.css */
+:root {
   --bg-color: #fafafa;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
@@ -50,7 +41,8 @@
   }
 }
 </style>
-<style href="/@global/layout.css">*, :before, :after {
+<style href="/@global/layout.css">/* @global/layout.css */
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
@@ -66,9 +58,9 @@ body {
 }
 
 body > header nav {
+  display: flex;
   justify-content: space-between;
   margin-bottom: 4rem;
-  display: flex;
 }
 
 body > header nav > a:first-child {
@@ -95,9 +87,9 @@ body > footer {
 }
 
 body > footer nav {
+  display: flex;
   gap: .5em;
   padding: 1rem 0;
-  display: flex;
 }
 
 body > footer nav a {
@@ -122,11 +114,12 @@ svg {
 }
 
 .latest-updates a:hover {
-  opacity: 1;
   text-decoration: none;
+  opacity: 1;
 }
 </style>
-<style href="/@global/typography.css">html {
+<style href="/@global/typography.css">/* @global/typography.css */
+html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   color: var(--gray-800);
@@ -134,7 +127,7 @@ svg {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Avenir Next;
 }
 
 h1 {
@@ -143,7 +136,14 @@ h1 {
   font-size: 2.6rem;
 }
 
-h1, h1 + p {
+h1 {
+  text-align: center;
+  text-wrap: balance;
+  max-width: 40rem;
+  margin: 0 auto .2em;
+}
+
+h1 + p {
   text-align: center;
   text-wrap: balance;
   max-width: 40rem;
@@ -174,8 +174,8 @@ h3 {
 }
 
 a {
-  color: var(--main-600);
   text-decoration: none;
+  color: var(--main-600);
 }
 
 a:hover {
@@ -205,12 +205,13 @@ p, li {
   color: var(--gray-600);
 }
 </style>
-<style href="/@library/cards.css">.pink, .blue {
+<style href="/@library/cards.css">/* @library/cards.css */
+.pink, .blue {
   background-image: var(--pink-gradient);
+  overflow: hidden;
   border-radius: .8em;
   margin: 1.5em 0 2em;
   padding: 3em 0 0 3em;
-  overflow: hidden;
 }
 
 :is(.pink, .blue) pre {
@@ -226,7 +227,8 @@ p, li {
   background-image: var(--blue-gradient);
 }
 </style>
-<style href="/@library/content.css">article a {
+<style href="/@library/content.css">/* @library/content.css */
+article a {
   color: var(--main-600);
   font-weight: 500;
 }
@@ -255,10 +257,10 @@ img, pre {
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-  display: block;
 }
 
 blockquote {
@@ -270,19 +272,20 @@ blockquote {
 
 blockquote p {
   color: var(--gray-900);
-  font-size: 140%;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 1.5;
 }
 
 blockquote strong {
   background-color: var(--marker);
   font-weight: inherit;
-  margin-inline: -.2em;
+  margin-inline-start: -.2em;
+  margin-inline-end: -.2em;
   padding: .1em .2em;
 }
 </style>
-<style href="/@library/motion.css">header, h1, h1 + p, h1 ~ *, h2, h2 + p, h2 ~ * {
+<style href="/@library/motion.css">/* @library/motion.css */
+header, h1, h1 + p, h1 ~ *, h2, h2 + p, h2 ~ * {
   filter: none;
   opacity: 1;
   transition: opacity .5s, filter .7s;
@@ -320,16 +323,25 @@ article {
   transform: scale(1.2)translateY(2em);
 }
 </style>
-<script src="/@nue/hotreload.js" type="module"></script>
-<script src="/@nue/view-transitions.js" type="module"></script>
+<meta name="generator" content="Nue v1.0.0-RC.4 (nuejs.org)">
+<meta name="date.updated" content="2025-07-20T11:52:01.833Z">
+<meta name="description" content="I did wake up at some point, went to the bathroom, then came back to bed and slept. That was good. I don&apos;t know what time it was.">
+<meta name="author" content="Mauricio Wolff">
+<meta property="og:title" content="Sleep fixed and Spinning">
+<meta property="og:description" content="I did wake up at some point, went to the bathroom, then came back to bed and slept. That was good. I don&apos;t know what time it was.">
+<meta property="og:image" content="https://carnivoorexperiment.nl/img/og.png">
+<meta property="article:published_time" content="Thu Jan 09 2025 01:00:00 GMT+0100 (Central European Standard Time)">
+<meta name="nue:components" content=" ">
+<meta name="nue:include" content="content cards motion">
+<meta name="nue:globals" content="@global">
+<meta name="nue:libs" content="@library">
     
   </head>
 
   <body>
     
     <header>
-  <nav><a href="/">Carnivoor Experiment</a>
-<a href="/contact">Contact</a></nav>
+  <nav><a href="/">Carnivoor Experiment</a></nav>
 </header>
     
     <main>

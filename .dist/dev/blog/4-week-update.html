@@ -1,0 +1,384 @@
+<!doctype html>
+
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carnivoor Experiments / Four weeks update</title>
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<script src="/@nue/hotreload.js" type="module"></script>
+<script src="/@nue/view-transitions.js" type="module"></script>
+<style href="/@global/colors.css">/* @global/colors.css */
+:root {
+  --bg-color: #fafafa;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --icon-color: #111827;
+  --main-500: #441500;
+  --main-600: #cc4600;
+  --pink-gradient: linear-gradient(#e879f9, #ec4899);
+  --blue-gradient: linear-gradient(#0ea5e9, #67e8f9);
+  --marker: #ffff7a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #16181b;
+    --gray-100: #1f2937;
+    --gray-200: #4b5563;
+    --gray-300: #6b7280;
+    --gray-500: #d1d5db;
+    --gray-800: #f3f4f6;
+    --gray-900: #fff;
+    --main-500: #cc4600;
+    --main-600: #ea5201;
+    --icon-color: #f3f4f6;
+  }
+}
+</style>
+<style href="/@global/layout.css">/* @global/layout.css */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+ul, ol, figure, pre {
+  margin: 2em 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 2% 5%;
+}
+
+body > header nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+body > header nav > a:first-child {
+  background: url("/img/favicon.png") 0 / 2em no-repeat;
+  padding-left: 2.5em;
+}
+
+body > header nav a {
+  padding: 1em 0;
+}
+
+body article > header {
+  margin-bottom: 2rem;
+}
+
+body article > section {
+  max-width: 75ch;
+  margin: 0 auto;
+}
+
+body > footer {
+  border-top: 1px solid var(--gray-200);
+  margin-top: 8rem;
+}
+
+body > footer nav {
+  display: flex;
+  gap: .5em;
+  padding: 1rem 0;
+}
+
+body > footer nav a {
+  opacity: .8;
+}
+
+body > footer nav a:hover {
+  opacity: 1;
+}
+
+body > footer nav a:nth-child(2) {
+  margin-left: auto;
+}
+
+svg {
+  color: var(--icon-color);
+}
+
+.latest-updates a {
+  opacity: .5;
+  transition: opacity .25s ease-in-out;
+}
+
+.latest-updates a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+</style>
+<style href="/@global/typography.css">/* @global/typography.css */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  color: var(--gray-800);
+  line-height: 1.4;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Avenir Next;
+}
+
+h1 {
+  letter-spacing: -.03em;
+  color: var(--gray-900);
+  font-size: 2.6rem;
+}
+
+h1 {
+  text-align: center;
+  text-wrap: balance;
+  max-width: 40rem;
+  margin: 0 auto .2em;
+}
+
+h1 + p {
+  text-align: center;
+  text-wrap: balance;
+  max-width: 40rem;
+  margin: 0 auto .2em;
+}
+
+h1 + p {
+  color: var(--gray-500);
+  margin-bottom: 2em;
+  font-size: 1.15em;
+  font-weight: 300;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+h2 + p {
+  color: var(--gray-300);
+  margin-top: 0;
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-600);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav :is(a) {
+  color: var(--gray-900);
+  font-weight: 500;
+}
+
+nav :is(a)[aria-selected] {
+  text-decoration: 2px underline var(--main-500);
+  text-underline-offset: 8px;
+}
+
+p, li {
+  color: var(--gray-800);
+  font-size: 1.24rem;
+}
+
+:is(p, li) strong {
+  color: var(--gray-800);
+}
+
+:is(h1 + p) strong {
+  color: var(--gray-600);
+}
+</style>
+<style href="/@library/cards.css">/* @library/cards.css */
+.pink, .blue {
+  background-image: var(--pink-gradient);
+  overflow: hidden;
+  border-radius: .8em;
+  margin: 1.5em 0 2em;
+  padding: 3em 0 0 3em;
+}
+
+:is(.pink, .blue) pre {
+  margin: 0;
+  padding: 2em;
+}
+
+:is(.pink, .blue) > * {
+  border-radius: .6em 0 0;
+}
+
+.blue {
+  background-image: var(--blue-gradient);
+}
+</style>
+<style href="/@library/content.css">/* @library/content.css */
+article a {
+  color: var(--main-600);
+  font-weight: 500;
+}
+
+article a:hover {
+  text-decoration-color: var(--main-600);
+}
+
+h2 {
+  color: var(--gray-800);
+  font-weight: 500;
+}
+
+li {
+  text-wrap: balance;
+  margin-bottom: 1em;
+}
+
+pre {
+  --glow-padding: 2em;
+  font-size: 105%;
+}
+
+img, pre {
+  border-radius: 8px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+blockquote {
+  border-left: 5px solid var(--gray-900);
+  text-wrap: balance;
+  margin: 2.5em 0;
+  padding-left: 1.5em;
+}
+
+blockquote p {
+  color: var(--gray-900);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+blockquote strong {
+  background-color: var(--marker);
+  font-weight: inherit;
+  margin-inline-start: -.2em;
+  margin-inline-end: -.2em;
+  padding: .1em .2em;
+}
+</style>
+<style href="/@library/motion.css">/* @library/motion.css */
+header, h1, h1 + p, h1 ~ *, h2, h2 + p, h2 ~ * {
+  filter: none;
+  opacity: 1;
+  transition: opacity .5s, filter .7s;
+}
+
+@starting-style {
+  :is(header, h1, h1 + p, h1 ~ *, h2, h2 + p, h2 ~ *) {
+    filter: blur(10px);
+    opacity: 0;
+  }
+}
+
+h1 {
+  transition-delay: .1s;
+}
+
+h1 + p {
+  transition-delay: .2s;
+}
+
+h1 ~ * {
+  transition-delay: .4s;
+}
+
+h2 ~ * {
+  transition-delay: 1s;
+}
+
+article {
+  view-transition-name: article;
+}
+
+::view-transition-old(article) {
+  transition: all .8s;
+  transform: scale(1.2)translateY(2em);
+}
+</style>
+<meta name="generator" content="Nue v1.0.0-RC.4 (nuejs.org)">
+<meta name="date.updated" content="2025-07-20T11:52:01.836Z">
+<meta name="description" content="So... four weeks into this. Feeling good.">
+<meta name="author" content="Mauricio Wolff">
+<meta property="og:title" content="Four weeks update">
+<meta property="og:description" content="So... four weeks into this. Feeling good.">
+<meta property="og:image" content="https://carnivoorexperiment.nl/img/og.png">
+<meta property="article:published_time" content="Sat Feb 01 2025 01:00:00 GMT+0100 (Central European Standard Time)">
+<meta name="nue:components" content=" ">
+<meta name="nue:include" content="content cards motion">
+<meta name="nue:globals" content="@global">
+<meta name="nue:libs" content="@library">
+    
+  </head>
+
+  <body>
+    
+    <header>
+  <nav><a href="/">Carnivoor Experiment</a></nav>
+</header>
+    
+    <main>
+    
+
+    <article>
+      <header>
+  <h1>Four weeks update</h1>
+  <p>
+    <time datetime="2025-02-01T00:00:00.000Z">February 1, 2025</time> &#x2022; Content by Mauricio Wolff &#x2022; Photo by <a target="_blank" href="https://unsplash.com/@donovan_valdivia?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Andrew Valdivia</a>
+  </p>
+
+  <img width="800" height="800" src="img/first-week.jpg" alt="Hero image for Four weeks update">
+</header>
+      <section><p>So... four weeks into this. Feeling good.</p>
+<p>Energy levels came back to normal. I&apos;m thinking it&apos;s probably just an adaptation thing, the body is amazing at adapting and then it&apos;s suddenly the new normal.</p>
+<p>Few things I can be sure about:</p>
+<ul><li><p><strong>No more cravings</strong>. After one month, those cravings for sweets, or snacks, goes away. If I eat fat enough, I can go hours without a meal feeling good, and don&apos;t feel any urge to eat whatever.</p></li>
+<li><p><strong>Too much fat can be a thing</strong>. The best counterpart: sparkling water. And how to know when it&apos;s too much: if you feel a bit nausea, sparkling water solves it, and a bit of time. If you really had too much animal fat, you&apos;ll run to the bathroom session, so if it&apos;s not that, you&apos;re good.</p></li>
+<li><p><strong>Focus, focus, focus</strong>. I&apos;m always amazed, because it&apos;s not the first time, how much focus is available when you&apos;re in Ketosis. Doesn&apos;t need to be carnivore, just keto in general. I can focus on solving things and get them done way faster than when not in ketosis. This is probably the most rewarding thing, I&apos;m getting more of my ideas and plans out and executed in days than in the previous months.</p></li></ul>
+<p>So yeah, in general, I think I&apos;m going well. I was able to release and improve <a href="https://github.com/bitbons-ai/bit">bit</a>, an open source project for <bitbons custom="bitbons" class="ai"></bitbons>,(https://bitbons.ai/), which is another project I had going in my mind for a while. A kind of a <a href="https://en.wikipedia.org/wiki/Bauhaus">Bauhaus</a> for digital products, for the masses and for free. The idea is to collect individuals who want to make better products and give them to the world. This was something I was thinking and talking to some people for a long time, and now I was able to just do it. Buy the domain, contact people, put them as DNS admins, create the github and npm org, that kinda nerd stuff. <strong>High quality meaningful people, high quality meaningful work.</strong></p></section>
+
+<section><h3>Next steps</h3>
+<p>Now that adaptation is not an issue anymore and I&apos;m feeling it gets easier and easier to eat only meat, I&apos;ll start to reintroduce stuff.</p>
+<p>Fruits once a day, as well as other foods, slowly, observing the effect, and adapting the diet. I&apos;m not on this journey to become a carnivore for life, I&apos;m doing this experiement to see what works best for me and keep doing it. &#x1f44d;</p></section>
+      
+    </article>
+
+    
+  </main>
+    <footer>
+  <nav><a href="/">&#xa9; Mauricio Wolff</a>
+<a href="//linkedin.com/in/mauriciowolff"><img src="/img/icon-linkedin.svg" width="22" height="22" alt="LinkedIn profile"></a>
+<a href="//github.com/bitbonsai/carnivoorexperiment.nl"><img src="/img/icon-github.svg" width="22" height="22" alt="Github Projects"></a>
+<a href="//mauriciowolff.com"><img src="/img/icon-website.svg" width="22" height="22" alt="Author&apos;s personal website"></a></nav>
+</footer>
+    
+  </body>
+
+</html>

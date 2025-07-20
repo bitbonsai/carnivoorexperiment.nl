@@ -1,64 +1,213 @@
 // ../../.bun/install/global/node_modules/nuekit/src/browser/app-router.js
-import { onclick, loadPage, setActive } from "./view-transitions.js";
-var is_browser = typeof window == "object";
+var curr_state = {};
 var fns = [];
-async function fire(path) {
-  for (const { pattern, fn } of fns) {
-    const data = match(pattern, path);
-    if (data)
-      await fn(data);
-  }
-  setActive(path);
+var opts;
+function cleanup() {
+  curr_state = {};
+  fns = [];
 }
-is_browser && addEventListener("before:route", () => {
-  fns.splice(0, fns.length);
-});
 var router = {
-  on(pattern, fn) {
-    fns.push({ pattern, fn });
+  configure(args) {
+    const {
+      route = "/",
+      url_params = [],
+      session_params = [],
+      persistent_params = []
+    } = args;
+    opts = { route: route.split("/"), url_params, session_params, persistent_params };
   },
-  start({ path, root }) {
-    if (root)
-      onclick(root, this.route);
-    this.pattern = path;
-    fire(location.pathname);
+  get state() {
+    const data = isEmpty(curr_state) ? parseData(location) : curr_state;
+    return { ...data, ...getStoreData() };
   },
-  route(path) {
-    scrollTo(0, 0);
-    const is_page = path.endsWith(".html");
-    history.pushState({ path, is_spa: !is_page }, 0, path);
-    is_page ? loadPage(path) : fire(path);
+  on(names, fn) {
+    fns.push({ names, fn });
   },
-  set(key, val) {
-    const args = new URLSearchParams(location.search);
-    args.set(key, val);
-    history.replaceState(router.data, 0, `?${args}`);
+  bind(key, fn) {
+    const [names, namespace] = key.split(":");
+    fns = fns.filter((el) => !(el.namespace == namespace && el.names == names));
+    fns.push({ names, fn, namespace });
   },
-  get data() {
-    const { pattern } = this;
-    const path_data = pattern ? match(pattern, location.pathname, true) : {};
-    const args = Object.fromEntries(new URLSearchParams(location.search));
-    return { ...path_data, ...args };
-  }
+  set(data, _val) {
+    if (typeof data == "string")
+      data = { [data]: _val };
+    if (contains(data, [...opts.url_params, ...opts.session_params, ...opts.persistent_params])) {
+      data = { ...curr_state, ...data };
+    }
+    const changes = fire(data);
+    if (changes && history)
+      pushURLState(changes);
+  },
+  toggle(name, flag) {
+    if (flag === undefined)
+      flag = !router.state[name];
+    router.set({ [name]: flag });
+    return flag;
+  },
+  del(key) {
+    router.set({ [key]: null });
+  },
+  initialize(args = {}) {
+    fire(parseData(location));
+    init(args.root);
+  },
+  cleanup
 };
-function match(pattern, path, is_global) {
-  const keys = pattern.split("/").slice(1);
-  const vals = path.split("/").slice(1);
-  if (!is_global && keys.length != vals.length)
-    return null;
-  let is_valid = true;
-  const data = {};
-  keys.forEach((key, i) => {
-    const val = vals[i];
-    if (key[0] == ":") {
-      if (val)
-        data[key.slice(1)] = 1 * val || val;
-    } else if (!is_global && key != val)
-      is_valid = false;
+function init(root = document) {
+  root.addEventListener("click", (e) => {
+    const a = e.target.closest("[href]");
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || !matchesPath(a.pathname))
+      return;
+    e.preventDefault();
+    const data = parseData(a);
+    const changes = fire(a.search ? { ...curr_state, ...data } : data);
+    if (changes)
+      pushURLState(changes);
   });
-  return is_valid ? data : null;
+}
+if (typeof window == "object")
+  addEventListener("popstate", (e) => {
+    const path = e.state?.path;
+    if (path && !matchesPath(path))
+      cleanup();
+    fire(e.state || {});
+  });
+if (typeof window == "object")
+  addEventListener("hmr", cleanup);
+function fire(data) {
+  const changes = { ...setStoreData(data), ...diff(curr_state, data) };
+  if (!changes)
+    return;
+  curr_state = data;
+  for (const el of fns.reverse()) {
+    if (contains(changes, el.names.split(" "))) {
+      el.fn(data, { path: renderPath(data) });
+    }
+  }
+  return changes;
+}
+function diff(orig, data) {
+  const changes = {};
+  for (const key in { ...orig, ...data }) {
+    if (key in data) {
+      if (data[key] !== orig[key])
+        changes[key] = data[key];
+    } else {
+      changes[key] = null;
+    }
+  }
+  return isEmpty(changes) ? null : changes;
+}
+function pushURLState(changes) {
+  if (hasPathData(changes)) {
+    history.pushState(curr_state, 0, renderPath() + renderQuery());
+  } else {
+    history.pushState(curr_state, 0, renderQuery() || "./");
+  }
+}
+function hasPathData(data) {
+  for (let key of opts.route) {
+    if (key[0] == ":" && data[key.slice(1)] !== undefined)
+      return true;
+  }
+}
+function parsePathData(path) {
+  const els = path.split("/");
+  const data = {};
+  for (let i = 1;i < opts.route.length; i++) {
+    const token = opts.route[i];
+    const part = els[i];
+    if (token[0] == ":") {
+      if (part)
+        data[token.slice(1)] = part;
+    } else if (token != part)
+      return;
+  }
+  return data;
+}
+function parseQueryData(search) {
+  const els = new URLSearchParams(search);
+  const data = {};
+  for (const [name, val] of els) {
+    if (opts.url_params.includes(name))
+      data[name] = val;
+  }
+  return data;
+}
+function parseData({ pathname, search }) {
+  const data = { ...parsePathData(pathname), ...parseQueryData(search) };
+  if (!hasPathData(data))
+    data[getFirstPart()] = "";
+  return data;
+}
+function getFirstPart() {
+  const key = opts.route.find((el) => el[0] == ":");
+  return key.slice(1);
+}
+function matchesPath(path = "") {
+  const prefix = opts.route[1];
+  return prefix[0] == ":" || prefix == path.split("/")[1];
+}
+function renderPath(data = curr_state) {
+  let els = opts.route.map((key, i2) => key[0] == ":" ? data[key.slice(1)] : key);
+  const i = els.findIndex((el) => el == null);
+  if (i > 0)
+    els = els.slice(0, i + 1);
+  return els.join("/").replaceAll("//", "/");
+}
+function renderQuery() {
+  const data = {};
+  opts.url_params.forEach(function(key) {
+    const val = curr_state[key];
+    if (val)
+      data[key] = val;
+  });
+  const query = new URLSearchParams(data);
+  return query.size ? "?" + query : "";
+}
+function contains(data, params) {
+  const keys = Object.keys(data);
+  return params.filter((el) => keys.includes(el))[0];
+}
+function isEmpty(obj) {
+  return !obj || !Object.keys(obj)[0];
+}
+var STORE_KEY = "$nue_state";
+function setStoreData(data) {
+  const changes = {};
+  for (const [key, value] of Object.entries(data)) {
+    const changed = opts.session_params.includes(key) && setStoreValue(sessionStorage, key, value) || opts.persistent_params.includes(key) && setStoreValue(localStorage, key, value);
+    if (changed)
+      changes[key] = value;
+  }
+  return changes;
+}
+function getStoreData() {
+  const data = {};
+  for (const store of [sessionStorage, localStorage]) {
+    const val = store[STORE_KEY];
+    if (val)
+      Object.assign(data, JSON.parse(val));
+  }
+  return data;
+}
+function setStoreValue(store, key, val) {
+  const data = JSON.parse(store[STORE_KEY] || "{}");
+  if (data[key] != val) {
+    data[key] = val;
+    store[STORE_KEY] = JSON.stringify(data);
+    return true;
+  }
 }
 export {
   router,
-  match
+  renderQuery,
+  renderPath,
+  parseQueryData,
+  parsePathData,
+  matchesPath,
+  hasPathData,
+  fire,
+  diff,
+  cleanup
 };

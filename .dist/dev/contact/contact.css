@@ -1,14 +1,19 @@
+/* contact/contact.css */
 main article section {
   max-width: none;
 }
 
-main article section h1, main article section p {
+main article section h1 {
+  text-align: left;
+}
+
+main article section p {
   text-align: left;
 }
 
 .stack {
-  gap: 3em;
   display: flex;
+  gap: 3em;
 }
 
 .stack > * {
@@ -23,7 +28,7 @@ main article section h1, main article section p {
   border-radius: 4px;
 }
 
-@media (width <= 1000px) {
+@media (max-width: 1000px) {
   .stack {
     flex-direction: column;
     max-width: 460px;

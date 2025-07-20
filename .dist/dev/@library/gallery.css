@@ -1,7 +1,8 @@
+/* @library/gallery.css */
 ul:has(time) {
+  list-style: none;
   margin: 4em 0;
   padding: 0;
-  list-style: none;
 }
 
 ul:has(time) li {
@@ -9,11 +10,11 @@ ul:has(time) li {
 }
 
 ul:has(time) figure {
-  align-items: center;
+  display: flex;
+  align-items:  center;
   gap: 3rem;
   margin: 0;
   transition: transform .1s;
-  display: flex;
 }
 
 ul:has(time) figure:hover {
