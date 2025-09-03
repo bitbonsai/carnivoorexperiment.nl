@@ -58,7 +58,7 @@ Looks like it. In case you want to check it out, or for my own future references
 
 So, first thing I did was to create a meal plan with the main aspects. 1800 calories a day, % of macros, 4 meals, 400g snack during fasting.
 
-**The elected foods:** Meat (stake and ground beef), Fish (salmon), Chicken, Blueberries, Honey, Salt, Eggs, Carrots, Zucchini, Greek yogurt, Dates, Cheese (Boerenkaas and Geitenkaas). Things that are not included in the list: sparkling water (San Pelegrino), tea and Black coffee.
+**The elected foods:** Meat (stake and ground beef), Fish (salmon), Chicken, Blueberries, Honey, Salt, Eggs, Carrots, Pumpkin, Zucchini, Greek yogurt, Dates, Cheese (Boerenkaas or Geitenkaas). Things that are not included in the list: sparkling water (San Pelegrino), tea and Black coffee.
 
 **12 items**. We're people with simple taste. 😁
 
