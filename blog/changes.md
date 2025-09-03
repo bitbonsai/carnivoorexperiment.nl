@@ -52,7 +52,7 @@ Looks like it. In case you want to check it out, or for my own future references
 
 ## But do you need to cut calories?
 
-**Not really**. We're very active and already eat well (for our standards). But we've been talking about doing [fasting again](https://medium.com/wolff-experiments/experiment-3-water-fasting-3843aa283dad), this has a fasting component, and to be honest, we like doing this kinda experiment and see the results.
+**Not really**. We're very active and already eat well (for our standards). But we've been talking about doing [fasting again](https://medium.com/wolff-experiments/experiment-3-water-fasting-3843aa283dad), this has a different fasting component (with 400g snack), and to be honest, we like doing this kinda experiment and see the results.
 
 ## And now what?
 
