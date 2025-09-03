@@ -69,6 +69,9 @@ So, first thing I did was to create a meal plan with the main aspects. 1800 calo
 | Snack     | Afternoon | 140g salmon + 150g zucchini + 75g blueberries + 5ml honey    | 450      |
 | Dinner    | Evening   | 15g chicken + 150g carrots + 125ml yogurt + 3 dates + 30g cheese | 450      |
 
+
+If you'd like to see the [weekly menu and shopping list, here it is](/weekly_meal_plan.pdf).
+
 ## How is it going so far?
 
 Well... we just started (we as in Karin and I). Yesterday was the first day, and today we're doing the fasting (because tomorrow we'll travel to Maastricht and weekend probably we'll eat with Natya & João).
