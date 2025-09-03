@@ -4,7 +4,7 @@
 }
 
 ul, ol, figure, pre {
-  margin: 2em 0;
+  margin: 2rem 0;
 }
 
 body {
@@ -21,12 +21,12 @@ body > header nav {
 }
 
 body > header nav > a:first-child {
-  background: url("/img/favicon.png") 0 / 2em no-repeat;
-  padding-left: 2.5em;
+  background: url("/img/favicon.png") 0 / 2rem no-repeat;
+  padding-left: 2.5rem;
 }
 
 body > header nav a {
-  padding: 1em 0;
+  padding: 1rem 0;
 }
 
 body article > header {
@@ -45,7 +45,7 @@ body > footer {
 
 body > footer nav {
   display: flex;
-  gap: .5em;
+  gap: .5rem;
   padding: 1rem 0;
 }
 

@@ -15,12 +15,12 @@ h2 {
 
 li {
   text-wrap: balance;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 /* syntax highligted code */
 pre {
-  --glow-padding: 2em;
+  --glow-padding: 2rem;
   font-size: 105%;
 }
 
@@ -39,8 +39,8 @@ img {
 blockquote {
   border-left: 5px solid var(--gray-900);
   text-wrap: balance;
-  padding-left: 1.5em;
-  margin: 2.5em 0;
+  padding-left: 1.5rem;
+  margin: 2.5rem 0;
 
   p {
     font-weight: 300;
@@ -53,5 +53,62 @@ blockquote {
     font-weight: inherit;
     padding: .1em .2em;
     margin-inline: -.2em;
+  }
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+th {
+  background-color: var(--gray-100);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: bold;
+  color: var(--gray-800);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+@media (prefers-color-scheme: dark) {
+  th {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-800);
+}
+
+/* Table row hover effect */
+table tbody tr:hover {
+  background-color: var(--gray-100);
+}
+
+table tr:hover td {
+  background-color: var(--gray-100);
+}
+
+@media (prefers-color-scheme: dark) {
+  table tbody tr:hover,
+  table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Responsive tables */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9rem;
+  }
+  
+  th, td {
+    padding: 0.5rem 0.75rem;
   }
 }

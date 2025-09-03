@@ -1,7 +1,7 @@
 ---
 title: 7 months update?
-thumb: img/first-week-thm.jpg
-og: img/first-week.jpg
+thumb: img/update1-thm.webp
+og: img/update1.webp
 date: 2025-07-20
 photoAuthor: Andrew Valdivia
 photoLink: https://unsplash.com/@donovan_valdivia?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash

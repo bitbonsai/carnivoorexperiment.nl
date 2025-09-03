@@ -3,19 +3,19 @@
 
 ul:has(time) {
   list-style: none;
-  margin: 4em 0;
+  margin: 4rem 0;
   padding: 0;;
 
   
   li {
-    margin-bottom: 3em;
+    margin-bottom: 1rem;
   }
   
   figure {
     transition: transform .1s;
     align-items: center;
     display: flex;
-    margin: 1em 0;
+    margin: 1rem 0;
     gap: 3rem;
     margin: 0;
     &:hover { transform: scale(1.01) }
@@ -37,7 +37,9 @@ ul:has(time) {
   }
 
   img {
-    max-width: 12em;
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
     border-radius: 4px;
   }
 }

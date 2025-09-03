@@ -47,7 +47,7 @@
 }
 
 ul, ol, figure, pre {
-  margin: 2em 0;
+  margin: 2rem 0;
 }
 
 body {
@@ -64,12 +64,12 @@ body > header nav {
 }
 
 body > header nav > a:first-child {
-  background: url("/img/favicon.png") 0 / 2em no-repeat;
-  padding-left: 2.5em;
+  background: url("/img/favicon.png") 0 / 2rem no-repeat;
+  padding-left: 2.5rem;
 }
 
 body > header nav a {
-  padding: 1em 0;
+  padding: 1rem 0;
 }
 
 body article > header {
@@ -88,7 +88,7 @@ body > footer {
 
 body > footer nav {
   display: flex;
-  gap: .5em;
+  gap: .5rem;
   padding: 1rem 0;
 }
 
@@ -123,10 +123,11 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   color: var(--gray-800);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Avenir Next;
 }
 
@@ -151,22 +152,19 @@ h1 + p {
 }
 
 h1 + p {
-  color: var(--gray-500);
-  margin-bottom: 2em;
-  font-size: 1.15em;
+  opacity: .5;
+  margin-bottom: 2rem;
+  font-size: .9rem;
   font-weight: 300;
+}
+
+h1 + p .photo-credit {
+  opacity: .5;
 }
 
 h2 {
   margin-bottom: 0;
-  font-size: 2rem;
-}
-
-h2 + p {
-  color: var(--gray-300);
-  margin-top: 0;
-  font-size: 1.3em;
-  font-weight: 300;
+  font-size: 2.2rem;
 }
 
 h3 {
@@ -194,7 +192,8 @@ nav :is(a)[aria-selected] {
 
 p, li {
   color: var(--gray-800);
-  font-size: 1.24rem;
+  margin: 1rem 0;
+  font-size: 1.25rem;
 }
 
 :is(p, li) strong {
@@ -204,19 +203,39 @@ p, li {
 :is(h1 + p) strong {
   color: var(--gray-600);
 }
+
+.latest-updates ul li h2 {
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.latest-updates ul li h2 + p {
+  color: var(--gray-300);
+  margin-top: 0;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.latest-updates ul li p {
+  margin-top: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
 </style>
 <style href="/@library/cards.css">/* @library/cards.css */
 .pink, .blue {
   background-image: var(--pink-gradient);
   overflow: hidden;
   border-radius: .8em;
-  margin: 1.5em 0 2em;
-  padding: 3em 0 0 3em;
+  margin: 1.5rem 0 2rem;
+  padding: 3rem 0 0 3rem;
 }
 
 :is(.pink, .blue) pre {
   margin: 0;
-  padding: 2em;
+  padding: 2rem;
 }
 
 :is(.pink, .blue) > * {
@@ -244,11 +263,11 @@ h2 {
 
 li {
   text-wrap: balance;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 pre {
-  --glow-padding: 2em;
+  --glow-padding: 2rem;
   font-size: 105%;
 }
 
@@ -266,8 +285,8 @@ img {
 blockquote {
   border-left: 5px solid var(--gray-900);
   text-wrap: balance;
-  margin: 2.5em 0;
-  padding-left: 1.5em;
+  margin: 2.5rem 0;
+  padding-left: 1.5rem;
 }
 
 blockquote p {
@@ -282,6 +301,55 @@ blockquote strong {
   margin-inline-start: -.2em;
   margin-inline-end: -.2em;
   padding: .1em .2em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+th {
+  background-color: var(--gray-100);
+  text-align: left;
+  color: var(--gray-800);
+  border-bottom: 1px solid var(--gray-200);
+  padding: .75rem 1rem;
+  font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+  th {
+    background-color: #ffffff08;
+  }
+}
+
+td {
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-800);
+  padding: .75rem 1rem;
+}
+
+table tbody tr:hover, table tr:hover td {
+  background-color: var(--gray-100);
+}
+
+@media (prefers-color-scheme: dark) {
+  table tbody tr:hover, table tr:hover td {
+    background-color: #ffffff08;
+  }
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: .9rem;
+  }
+
+  th, td {
+    padding: .5rem .75rem;
+  }
 }
 </style>
 <style href="/@library/motion.css">/* @library/motion.css */
@@ -324,7 +392,7 @@ article {
 }
 </style>
 <meta name="generator" content="Nue v1.0.0-RC.4 (nuejs.org)">
-<meta name="date.updated" content="2025-07-20T11:52:01.808Z">
+<meta name="date.updated" content="2025-09-03T14:16:55.935Z">
 <meta name="description" content="The idea is simple. Eat only meat, water and salt, for a period of time, and observe the effects.">
 <meta name="author" content="Mauricio Wolff">
 <meta property="og:title" content="The idea">
@@ -351,10 +419,10 @@ article {
       <header>
   <h1>The idea</h1>
   <p>
-    <time datetime="2025-01-01T00:00:00.000Z">January 1, 2025</time> &#x2022; Content by Mauricio Wolff &#x2022; Photo by <a target="_blank" href="https://openai.com/index/dall-e-3/">DALL-E 3</a>
+    <time datetime="2025-01-01T00:00:00.000Z">January 1, 2025</time> &#x2022; By Mauricio Wolff &#x2022; <span class="photo-credit">Photo by <a target="_blank" href="https://openai.com/index/dall-e-3/">DALL-E 3</a></span>
   </p>
 
-  <img width="800" height="800" src="img/the-idea.jpg" alt="Hero image for The idea">
+  <img width="800" height="800" src="img/the-idea.webp" alt="Hero image for The idea">
 </header>
       <section><p>The idea is simple. Eat only meat, water and salt, for a period of time, and observe the effects.</p>
 <p>This is not the first time I do this. When I <a href="#addlink">removed my appendix</a> in 2021, I was reading a book: <a href="https://www.amazon.com/Carnivore-Code-Unlocking-Returning-Ancestral/dp/035846997X">Carnivore Code</a> by Paul Saladino (at that time he was only eating meat).</p>

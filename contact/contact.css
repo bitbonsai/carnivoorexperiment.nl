@@ -7,7 +7,7 @@ main article section {
 
 .stack {
   display: flex;
-  gap: 3em;
+  gap: 3rem;
 
   > * { flex: 1 }
   figure { margin: 0 }

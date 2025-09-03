@@ -1,12 +1,12 @@
 /* @library/gallery.css */
 ul:has(time) {
   list-style: none;
-  margin: 4em 0;
+  margin: 4rem 0;
   padding: 0;
 }
 
 ul:has(time) li {
-  margin-bottom: 3em;
+  margin-bottom: 1rem;
 }
 
 ul:has(time) figure {
@@ -37,6 +37,8 @@ ul:has(time) h2 {
 }
 
 ul:has(time) img {
+  object-fit: cover;
   border-radius: 4px;
-  max-width: 12em;
+  width: 6rem;
+  height: 6rem;
 }

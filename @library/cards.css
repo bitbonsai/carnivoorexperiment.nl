@@ -1,13 +1,13 @@
 
 .pink, .blue {
   background-image: var(--pink-gradient);
-  padding: 3em 0 0 3em;
+  padding: 3rem 0 0 3rem;
   border-radius: .8em;
   overflow: hidden;
-  margin: 1.5em 0 2em;
+  margin: 1.5rem 0 2rem;
 
   pre {
-    padding: 2em;
+    padding: 2rem;
     margin: 0;
   }
 

@@ -1,11 +1,12 @@
 html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--gray-800);
 }
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* heading and subtitle */
@@ -22,21 +23,19 @@ h1 {
   }
   
   + p {
-    font-size: 1.15em;
+    font-size: 0.9rem;
     font-weight: 300;
-    margin-bottom: 2em;
-    color: var(--gray-500);
+    margin-bottom: 2rem;
+    opacity: 0.5;
+    
+    .photo-credit {
+      opacity: 0.5;
+    }
   }
 }
 h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 0;
-  + p {
-    font-size: 1.3em;
-    font-weight: 300;
-    margin-top: 0;
-    color: var(--gray-300);
-  }
 }
 h3 {
   font-size: 1.6rem;
@@ -66,8 +65,35 @@ a {
 p, li {
   color: var(--gray-800);
   strong { color: var(--gray-800) }
-  font-size: 1.24rem;
+  font-size: 1.25rem;
+  margin: 1rem 0;
 }
 :is(h1 + p) strong {
   color: var(--gray-600)
+}
+
+/* Latest Updates / page-list specific styles */
+.latest-updates {
+  ul li {
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    /* Subtitle styling for listing pages */
+    h2 + p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin-top: 0;
+      line-height: 1.5;
+      color: var(--gray-300);
+    }
+    
+    p {
+      font-size: 1rem;
+      margin-top: 0;
+      line-height: 1.5;
+    }
+  }
 }

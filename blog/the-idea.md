@@ -1,7 +1,7 @@
 ---
 title: The idea
-thumb: img/the-idea-thm.jpg
-og: img/the-idea.jpg
+thumb: img/the-idea-thm.webp
+og: img/the-idea.webp
 date: 2025-01-01
 photoAuthor: DALL-E 3
 photoLink: https://openai.com/index/dall-e-3/

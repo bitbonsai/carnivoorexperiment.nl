@@ -7,12 +7,12 @@
 
 label {
   display: block;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 label span {
   display: block;
-  margin-bottom: .3em;
+  margin-bottom: .3rem;
   font-weight: 500;
 }
 

@@ -17,8 +17,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "nue build -p"
-  },
-  "dependencies": {
-    "nuekit": "^1.0.0-RC.4"
   }
 }

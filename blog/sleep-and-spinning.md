@@ -1,7 +1,7 @@
 ---
 title: Sleep fixed and Spinning
-thumb: img/spinning-thm.jpg
-og: img/spinning.jpg
+thumb: img/spinning-thm.webp
+og: img/spinning.webp
 date: 2025-01-09
 photoAuthor: Andrew Valdivia
 photoLink: https://unsplash.com/@donovan_valdivia?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash

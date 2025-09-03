@@ -13,7 +13,7 @@ main article section p {
 
 .stack {
   display: flex;
-  gap: 3em;
+  gap: 3rem;
 }
 
 .stack > * {

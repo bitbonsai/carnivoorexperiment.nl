@@ -1,7 +1,7 @@
 ---
 title: First week
-thumb: img/first-week-thm.jpg
-og: img/first-week.jpg
+thumb: img/update1-thm.webp
+og: img/update1.webp
 date: 2025-01-08
 photoAuthor: Miguel A Amutio
 photoLink: https://unsplash.com/@amutiomi?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash

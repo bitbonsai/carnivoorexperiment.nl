@@ -1,7 +1,7 @@
 ---
 title: Second week update
-thumb: img/first-week-thm.jpg
-og: img/first-week.jpg
+thumb: img/update1-thm.webp
+og: img/update1.webp
 date: 2025-01-20
 photoAuthor: Andrew Valdivia
 photoLink: https://unsplash.com/@donovan_valdivia?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
@@ -21,7 +21,7 @@ What I do care is that I remember that in 2017, when I did the 3 months of keto,
 
 Anyway, I feel good. The trick to get into it faster this time, don't feel that much the keto flu and have enough energy, was to **add more fats**.
 
-![Ketosis test strips](img/ketones.jpg)
+![Ketosis test strips](img/ketones.webp)
 
 ### The basic meal: ribeye with added fat
 
@@ -51,4 +51,4 @@ And sometimes coffee. 90% of the time, black coffee. Sometimes if I want to indu
 
 And I'm feeling lighter, stronger at the gym (lifting more weight), and I'm feeling more energized. Today I did 30min spinning class (at the gym, prerecorded), and some exercises with a 16kg kettlebell and some stretching. Tomorrow it's going to be heavy lifting. Wednesday I should do a proper 45min spinning class. I feel my energy is coming back to normal to optimal levels.
 
-![Ribeye with added fat](img/ribeye.jpg)
+![Ribeye with added fat](img/ribeye.webp)

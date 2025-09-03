@@ -1,7 +1,7 @@
 ---
 title: First days
-thumb: img/first-days-thm.jpg
-og: img/first-days.jpg
+thumb: img/first-days-thm.webp
+og: img/first-days.webp
 date: 2025-01-06
 photoAuthor: Maddi Bazzocco
 photoLink: https://unsplash.com/@maddibazzocco?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
