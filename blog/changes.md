@@ -50,6 +50,10 @@ Looks like it. In case you want to check it out, or for my own future references
 - [Wiley: Obesity journal article ↗](https://onlinelibrary.wiley.com/doi/10.1002/oby.23660)
 - [NCBI: Related fasting research ↗](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4258944/)
 
+## But do you need to cut calories?
+
+**Not really**. We're very active and already eat well (for our standards). But we've been talking about doing [fasting again](https://medium.com/wolff-experiments/experiment-3-water-fasting-3843aa283dad), this has a fasting component, and to be honest, we like doing this kinda experiment and see the results.
+
 ## And now what?
 
 So, first thing I did was to create a meal plan with the main aspects. 1800 calories a day, % of macros, 4 meals, 400g snack during fasting.
